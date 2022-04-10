@@ -1,0 +1,15 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Solid1.ISP.Bad
+{
+    internal interface IBird
+    {
+        string fly();
+
+        string walk();
+    }
+}

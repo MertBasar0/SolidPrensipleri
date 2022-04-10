@@ -1,0 +1,52 @@
+﻿Single Responsibility Princeple
+----------------------------
+
+Bu prensibi hatırlamak için önce gidin srp klasörüne bakın
+BadEmployeeProcecessor single responsibility prensibine uymayacaktır.
+Logger sınıfını oluşturarak ve GoodEmployeeProccess ile işleri birbirinden ayırıyoruz.
+
+
+
+Open / Closed principle
+--------------------
+
+Bu prensibi elektrik adaptörü gibi düşünün
+Çıkış sayısını değiştirmeniz mümkün değildir. Fkat isterseniz adaptör sayısını arttırabilirsiniz.
+Bir adet badclass oluşturarak open-closed prensibini uygulayacağız
+
+
+--Amaç => her yeni tipe bir class oluşturmak Bu sayede kod genişletilebilir olacak sadece son eklenen vlasslar kontrol edilecek
+ve eski classlarda modifilasyona gerek kalmayacak.
+
+--Kötü kullanımında tek class içersinde if else ekleyerek tipleri tutarken, validated klasörüne her tip için class oluşturduk.
+Bu sayede projemize yeni tip katıldığında yeni class açılarak devam edilir.
+
+
+***Liskow Substituon Principle
+
+--Aslına bakarsanız bu prensip ocp benzemektedir.
+--Alt sınıfta oluşan nesneler(kalıtım)  üst sınıflardan oluşturulan nesnelerle yer değiştirilebilir olmalıdır.
+
+//rectangle nesnesinden square oluşturursak, program cs içerisinde gibi gibi bir durumda hata alırsınız.
+
+1.Hatayı çözmek için 1.AreaCalculator classını kaldırdık..
+2.Her şeklin kendi alan hesaplama fonsiyonuna sahip olmasını sağladık.
+3.Dörtgen sınıfının base sınıf olmasındansa shape adında genel soyutlayıcı bir sınıf ekledik.
+
+Ardından işlemleri validaed klasöründeki classlar üzerinden yürütmeye kalktık..
+Hatasız olarak çalıştırdığını gördük..
+
+Interface Segregation Principle
+
+--Isp klasörüne bakın
+--Sınıflar ihtiyaç duydukları özelliklere sahip olmalıdır. İhtiyaçları olmayan özellik ve davranışları içeren interfaceler alınmamalıdır.
+--IBird interface bakarsak çok genel olduğunu ve farklı kuş türlerinden kuş ailesinden gelen türlerde probleme yol
+açılabileceğini gözlenmiştir.
+--Tavuk Penguen gibi kuş tipleri uçamazlar ve biz bu kuş interface'i üzerinde tüm kuşların bu yeteneklere sahip olduklarını
+varsayarsak kötü bir tasarım yapmış oluruz.
+
+--Bunu düzeltmek adına kuş interfaceindeki özellikleri parçalamaya kalktık..
+--Validated klasöründe şu andaki problem bir çözüm geliştirilmiştir.
+--Şahin sınıfına bakarsak hem uçamayan hemde uçabilen kuşların yeteneklerine sahip olduğu ancak tavukların sadece uçamayan 
+kuşların oldukları yeteneklere sahip olduğunu görebilirsiniz.
+--Bu sayede tavuk sınıfı gereksiz davranış ve özellikleri almamış olur.
